@@ -15,11 +15,12 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(UUID id, String nome, Date dataNascimento, Endereco enderecoPrincipal) {
+    public Pessoa(UUID id, String nome, Date dataNascimento, Endereco enderecoPrincipal, List<Endereco> endereco) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.enderecoPrincipal = enderecoPrincipal;
+        this.endereco = endereco;
     }
 
     public UUID getId() {
