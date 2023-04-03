@@ -1,15 +1,23 @@
 package com.wr.gerenciamento.entities;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
+@Entity
+@Table(name = "tb_pessoa")
 public class Pessoa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     private String nome;
     private Date dataNascimento;
+    @OneToMany
+    @JoinColumn(name = "pessoa")
     private Endereco enderecoPrincipal;
+   // @OneToMany(mappedBy = "pessoa")
     private List<Endereco> endereco = new ArrayList<>();
 
     public Pessoa() {

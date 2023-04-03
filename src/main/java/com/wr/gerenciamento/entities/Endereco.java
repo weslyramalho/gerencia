@@ -1,14 +1,24 @@
 package com.wr.gerenciamento.entities;
 
-import java.util.UUID;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+@Entity
+@Table(name = "tb_endereco")
 public class Endereco {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     private String logradouro;
     private String cep;
     private Integer numero;
     private String cidade;
     private String estado;
+    @ManyToOne
+    @JoinColumn(name = "pessoa_id")
+    private List<Pessoa> pessoas = new ArrayList<>();
 
     public Endereco() {
     }
